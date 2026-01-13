@@ -1,0 +1,4 @@
+# No external libraries required
+# This project uses only Python standard libraries
+
+python>=3.8
