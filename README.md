@@ -110,13 +110,3 @@ Blocks are cryptographically linked; verification recalculates each hash and che
 - Flask web UI uses **Flask** (see `requirements.txt`).
 
 ---
-
-## 📄 License
-
-
-This project is free to use for educational purposes.
-
----
-
-If you want a **web version + database + login + face recognition**, let me know 😎
-
