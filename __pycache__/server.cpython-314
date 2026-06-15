@@ -1,1 +1,41 @@
++
+    ½X j
+  ã                  óÎ  € R t ^ RIHt ^ RIt^ RIHt ^ RIHtHtH	t	 ^ RI
+HtHtH
+t
+Ht ^ RIHt ]! ]4      t]! 4       t]P)                  R4      R R	 l4       t]P-                  R
+4      R R l4       t]P)                  R
+4      R
+ R l4       t]P)                  R4      R R l4       t]R8X  d9   ]! ]P6                  P)                  RR4      4      t]P;                  R]RR7       R# R# )zöFlask web app for the Blockchain Attendance Management System.
 
+This is the frontend+backend integration requested.
+
+Runs with standard-library only *for the blockchain logic*.
+Flask is an external dependency and is declared in requirements.txt.
+)ÚannotationsN)Úasdict)ÚAnyÚDictÚList)ÚFlaskÚjsonifyÚrender_templateÚrequest)ÚAttendanceBlockchainÚ/c               ó   € V ^8„  d   QhRR/# )é   ÚreturnÚstr© )Úformats   "Ú	server.pyÚ__annotate__r      s   € ÷ )ñ )ˆsñ )ó    c                 ó   € \        R 4      # )z
+index.html)r	   r   r   r   Úindexr      s
+   € ä˜<Ó(Ð(r   z/api/attendancec               ó   € V ^8„  d   QhRR/# ©r   r   r   r   )r   s   "r   r   r   !   s   € ÷ Fñ F˜Sñ Fr   c                 ó¨  € \         P                  ! R R7      ;'       g    / p \        V P                  RR4      4      P	                  4       p\        V P                  RR4      4      P	                  4       p\        V P                  RR4      4      P	                  4       p\        V P                  RR4      4      P	                  4       P                  4       pVR9   d   RpMVR9   d   RpM\
+        R	R
+/4      R3# V'       d   V'       d	   V'       g   \
+        R	R/4      R3# \        P                  VVVVR
+7      p\
+        RRRVP                  4       /4      # )T)ÚsilentÚ
+student_idÚ ÚnameÚcourseÚstatusÚPresentÚAbsentÚerrorzstatus must be Present/Absenti  z%student_id, name, course are required)r   r   r   r    ÚmessageÚRecordedÚblock>   ÚpÚpresent>   ÚaÚabsent)
+r
+   Úget_jsonr   ÚgetÚstripÚlowerr   Ú
+blockchainÚadd_attendanceÚto_dict)Údatar   r   r   Ú
+status_rawr    r&   s          r   Úapi_mark_attendancer4       s&  € ä×Ò 4Ô(×.Ð.¨B€DäT—X‘X˜l¨BÓ/Ó0×6Ñ6Ó8€JÜˆtx‰x˜ Ó#Ó$×*Ñ*Ó,€DÜ
+—‘˜( BÓ'Ó
+(×
+.Ñ
+.Ó
+0€FäT—X‘X˜h¨Ó+Ó,×2Ñ2Ó4×:Ñ:Ó<€JØÐ%Ô%Ø‰Ø	Ô	&Ø‰ä˜Ð!@ÐAÓBÀCÐGÐGçŸT¯Ü˜Ð!HÐIÓJÈCÐOÐOä×%Ñ%ØØ
+ØØð	 
+&ó 
+€Eô I˜z¨7°E·M±M³OÐDÓEÐEr   c               ó   € V ^8„  d   QhRR/# r   r   )r   s   "r   r   r   >   s   € ÷ Eñ E˜Cñ Er   c                 ó@   € \        R \        P                  4       /4      # )Úrecords)r   r/   Úget_attendance_recordsr   r   r   Úapi_get_attendancer9   =   s   € äIœz×@Ñ@ÓBÐCÓDÐDr   z/api/verifyc               ó   € V ^8„  d   QhRR/# r   r   )r   s   "r   r   r   C   s   € ÷ ;ñ ;Cñ ;r   c                 ó@   € \        R \        P                  4       /4      # )Úvalid)r   r/   Úis_chain_validr   r   r   Ú
+api_verifyr>   B   s   € äGœZ×6Ñ6Ó8Ð9Ó:Ð:r   Ú__main__ÚPORTÚ5000z0.0.0.0T)ÚhostÚportÚdebug)Ú__doc__Ú
+__future__r   ÚosÚdataclassesr   Útypingr   r   r   Úflaskr   r   r	   r
+   Úattendance_blockchainr   Ú__name__Úappr/   r,   r   Úpostr4   r9   r>   ÚintÚenvironrC   Úrunr   r   r   Ú<module>rR      sî   ðñõ #ã 	Ý ß "Ñ "ç :Ó :õ 7ñ ˆHƒo€ñ "Ó
+#€
+ð ‡ˆƒô)ó ð)ð ‡Ð
+ÓôFó ðFð8 ‡Ð	ÓôEó ðEð ‡ˆÓô;ó ð;ð ˆzÔÙˆrz‰z~‰~˜f fÓ-Ó.€Dà‡GG ¨T€GÖ2ñ r   
