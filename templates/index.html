@@ -1,1 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blockchain Attendance Management</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Blockchain Attendance Management</h1>
+
+    <section class="card">
+      <h2>Mark Attendance</h2>
+      <form id="attendanceForm">
+        <div class="row">
+          <label>Student ID</label>
+          <input name="student_id" required />
+        </div>
+        <div class="row">
+          <label>Student Name</label>
+          <input name="name" required />
+        </div>
+        <div class="row">
+          <label>Course</label>
+          <input name="course" required />
+        </div>
+        <div class="row">
+          <label>Status</label>
+          <select name="status" required>
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+          </select>
+        </div>
+        <button type="submit">Record</button>
+      </form>
+      <div id="formMessage" class="message" aria-live="polite"></div>
+    </section>
+
+    <section class="card">
+      <div class="row-between">
+        <h2>Attendance Records</h2>
+        <button id="verifyBtn" type="button">Verify Blockchain</button>
+      </div>
+      <div id="verifyMessage" class="message" aria-live="polite"></div>
+      <pre id="records" class="pre"></pre>
+    </section>
+  </main>
+
+  <script>
+    const $ = (sel) => document.querySelector(sel);
+
+    async function loadRecords() {
+      const res = await fetch('/api/attendance');
+      const data = await res.json();
+      $('#records').textContent = JSON.stringify(data.records, null, 2);
+    }
+
+    async function submitAttendance(e) {
+      e.preventDefault();
+      const form = e.target;
+      const fd = new FormData(form);
+
+      const payload = {
+        student_id: (fd.get('student_id') || '').toString(),
+        name: (fd.get('name') || '').toString(),
+        course: (fd.get('course') || '').toString(),
+        status: (fd.get('status') || '').toString(),
+      };
+
+      $('#formMessage').textContent = 'Submitting...';
+
+      const res = await fetch('/api/attendance', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        $('#formMessage').textContent = data.error || 'Failed';
+        return;
+      }
+
+      $('#formMessage').textContent = data.message || 'Recorded';
+      form.reset();
+      await loadRecords();
+    }
+
+    async function verify() {
+      $('#verifyMessage').textContent = 'Verifying...';
+      const res = await fetch('/api/verify');
+      const data = await res.json();
+      $('#verifyMessage').textContent = data.valid ? 'Blockchain is VALID ✅' : 'Blockchain is INVALID ❌';
+      await loadRecords();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      $('#attendanceForm').addEventListener('submit', submitAttendance);
+      $('#verifyBtn').addEventListener('click', verify);
+      loadRecords();
+    });
+  </script>
+</body>
+</html>
 
